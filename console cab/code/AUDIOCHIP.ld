@@ -1,0 +1,51 @@
+LDmicro0.1
+MICRO=Microchip PIC16F876 28-PDIP or 28-SOIC
+CYCLE=10000
+CRYSTAL=20000000
+BAUD=2400
+COMPILED=C:\Users\work\Desktop\console project\New folder\audiochip.hex
+
+IO LIST
+    Y_RB0 at 21
+    Y_RB1 at 22
+END
+
+PROGRAM
+RUNG
+    TON Tnew1 4000000
+    COIL Rnew2 0 0 0
+END
+RUNG
+    CONTACTS Rnew2 1
+    COIL R1sec 0 0 0
+END
+RUNG
+    TON Tnew3 6000000
+    COIL Rnew4 0 0 0
+END
+RUNG
+    CONTACTS Rnew2 0
+    CONTACTS Rnew4 1
+    COIL Y_RB0 0 0 0
+END
+RUNG
+    TON Tnew5 12000000
+    COIL Rnew6 0 0 0
+END
+RUNG
+    CONTACTS Y_RB0 1
+    CONTACTS R1sec 1
+    CONTACTS Rnew6 1
+    COIL Rnew7 0 0 0
+END
+RUNG
+    TON Tnew8 16000000
+    COIL Rnew8 0 0 0
+END
+RUNG
+    CONTACTS Rnew2 0
+    CONTACTS Rnew4 0
+    CONTACTS Rnew6 0
+    CONTACTS Rnew8 1
+    COIL Y_RB1 0 0 0
+END
